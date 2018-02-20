@@ -59,7 +59,7 @@ function getWeather(){
 			//get tempature data and store in both c and f
 			temp.c = Math.round(data.main.temp) + " " +String.fromCharCode(176)+"C";
 			temp.f = Math.round(data.main.temp*1.8 + 32) + " " +String.fromCharCode(176)+"F";
-			$("#temp").text(temp.c);
+			$("#temp").text(temp.f);
 			$(".weather:last").text(data.weather[0].main);
 			// timeOfDay = isDay(data.sys.sunrise, data.sys.sunset);
 			$(".weather:first").html(icons[timeOfDay][data.weather[0].description]);
