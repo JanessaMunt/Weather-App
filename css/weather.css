@@ -1,0 +1,34 @@
+body {
+	background-color: steelblue;
+	color: #F6F7EB;
+	text-align: center;
+	font-size: 2em;
+	font-family: "Concert One";
+	letter-spacing: .11em;
+}
+
+h1 {
+	padding: 10% 0  7% 0;
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+button {
+	background: inherit;
+	color: inherit;
+	outline: none;
+	border-radius: 10%;
+}
+
+button:hover {
+	background: #F6F7EB;
+	color: steelblue;
+}
+
+button:focus{
+	outline: 0;
+}
+
+#icon{
+	font-size: 5rem;
+}
