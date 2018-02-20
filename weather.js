@@ -61,7 +61,7 @@ function getWeather(){
 			temp.f = Math.round(data.main.temp*1.8 + 32) + " " +String.fromCharCode(176)+"F";
 			$("#temp").text(temp.f);
 			$(".weather:last").text(data.weather[0].main);
-			// timeOfDay = isDay(data.sys.sunrise, data.sys.sunset);
+			timeOfDay = isDay(data.sys.sunrise, data.sys.sunset, data.dt);
 			$(".weather:first").html(icons[timeOfDay][data.weather[0].description]);
 
 		}
@@ -69,21 +69,15 @@ function getWeather(){
 
 	});
 }
-//future version may include different icons for day/night
-// function isDay(sunrise, sunset){
-
-// 	var d = new Date();
-
-// 		console.log(sunrise);	
-// 		console.log(sunset);
-// 		console.log(d.getTime());
-// 	if(d.getTime() > sunrise && d.getTime() < sunset){
-// 		return "day";
-// 	}
-// 	else{
-// 		return "night";
-// 	}
-// }
+//check if it is day or night
+function isDay(sunrise, sunset, time){
+	if(time > sunrise && time < sunset){
+ 		return "day";
+ 	}
+ 	else{
+ 		return "night";
+	}
+}
 
 //toggle c and f
 $("button:first").on("click",function(){
