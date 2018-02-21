@@ -28,25 +28,25 @@ function main(){
 function getWeather(){
 	var icons = {
 		"day":
-		{"clear sky": "<i class=\"wi wi-day-sunny\"></i>",
-		"few clouds": "<i class=\"wi wi-day-cloudy\"></i>",
-		"scattered clouds": "<i class=\"wi wi-day-cloudy\"></i>",
-		"broken clouds": "<i class=\"wi wi-day-cloudy\"></i>",
-		"shower rain": "<i class=\"wi wi-day-rain-mix\"></i>",
-		"rain": "<i class=\"wi wi-day-rain\"></i>",
-		"thunderstorm": "<i class=\"wi wi-day-lightning\"></i>",
-		"snow": "<i class=\"wi wi-day-snow\"></i>",
-		"mist": "<i class=\"wi wi-day-fog\"></i>" },
+		{"Clear": "<i class=\"wi wi-day-sunny\"></i>",
+		"Clouds": "<i class=\"wi wi-day-cloudy\"></i>",
+		"Extreme": "<i class=\"wi wi-thermometer\"></i>",
+		"Drizzle": "<i class=\"wi wi-day-showers\"></i>",
+		"Rain": "<i class=\"wi wi-day-rain\"></i>",
+		"Thunderstorm": "<i class=\"wi wi-day-lightning\"></i>",
+		"Snow": "<i class=\"wi wi-day-snow\"></i>",
+		"Atmosphere": "<i class=\"wi wi-day-fog\"></i>",
+		"Other": "<i class=\"wi wi-cloudy\"></i>"},
 		"night":
-		{"clear sky": "<i class=\"wi wi-night-clear\"></i>",
-		"few clouds": "<i class=\"wi wi-night-alt-cloudy\"></i>",
-		"scattered clouds": "<i class=\"wi wi-night-alt-cloudy\"></i>",
-		"broken clouds": "<i class=\"wi wi-night-alt-cloudy\"></i>",
-		"shower rain": "<i class=\"wi wi-night-rain-mix\"></i>",
-		"rain": "<i class=\"wi wi-night-alt-rain\"></i>",
-		"thunderstorm": "<i class=\"wi wi-night-lightning\"></i>",
-		"snow": "<i class=\"wi wi-night-snow\"></i>",
-		"mist": "<i class=\"wi wi-night-fog\"></i>" }
+		{"Clear": "<i class=\"wi wi-night-clear\"></i>",
+		"Clouds": "<i class=\"wi wi-night-alt-cloudy\"></i>",
+		"Extreme": "<i class=\"wi wi-thermometer\"></i>",
+		"Drizzle": "<i class=\"wi wi-night-alt-showers\"></i>",
+		"Rain": "<i class=\"wi wi-night-alt-rain\"></i>",
+		"Thunderstorm": "<i class=\"wi wi-night-thunderstorm\"></i>",
+		"Snow": "<i class=\"wi wi-night-alt-snow\"></i>",
+		"Atmosphere": "<i class=\"wi wi-night-fog\"></i>",
+		"Other": "<i class=\"wi wi-cloudy\"></i>"},
 	};
 
 	$.ajax({
@@ -62,7 +62,8 @@ function getWeather(){
 			$("#temp").text(temp.f);
 			$(".weather:last").text(data.weather[0].main);
 			timeOfDay = isDay(data.sys.sunrise, data.sys.sunset, data.dt);
-			$(".weather:first").html(icons[timeOfDay][data.weather[0].description]);
+			$(".weather:first").html(icons[timeOfDay][data.weather[0]["Other"]]);
+			$(".weather:first").html(icons[timeOfDay][data.weather[0].main]);
 
 		}
 
